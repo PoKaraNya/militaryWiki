@@ -1,20 +1,12 @@
 'use client'
+import { FC } from 'react'
 
-import { Button } from 'antd';
-import {FC} from "react";
-
-interface IProps {
-
-}
+interface IProps {}
 
 const Home: FC<IProps> = () => {
   return (
     <main>
-      <div>
 
-
-
-      </div>
     </main>
   )
 }
