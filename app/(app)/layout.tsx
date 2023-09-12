@@ -1,8 +1,6 @@
-import { Inter } from 'next/font/google'
 import { ReactNode, FC } from 'react'
 import { Metadata } from 'next'
-
-const inter = Inter({ subsets: ['latin'] })
+import { Header } from '@/components/Header'
 
 interface IProps {
   children: ReactNode
@@ -15,10 +13,10 @@ export const metadata: Metadata = {
 
 const Layout: FC<IProps> = ({ children }) => {
   return (
-      <main>
-          layout
-          {children}
-      </main>
+    <main>
+      <Header />
+      {children}
+    </main>
   )
 }
 export default Layout
