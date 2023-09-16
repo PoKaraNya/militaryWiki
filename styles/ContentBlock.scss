@@ -1,11 +1,18 @@
 @import 'colors';
 
 .content-block {
-  width: 100vw;
   min-height: 500px;
   background: $content-bg;
+  position: relative;
 
   &--transparent {
     background: none;
   }
+}
+
+.transparent-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

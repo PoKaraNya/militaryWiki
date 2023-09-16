@@ -4,16 +4,19 @@ import '@/styles/ContentBlock.scss'
 interface IProps {
   children: ReactNode
   transparent?: boolean
+  className?: string
 }
 
 export const BaseContentBlock: FC<IProps> = ({
   children,
   transparent = false,
+  className = ''
 }) => {
-  let sectionClass = 'content-block'
+  let sectionClass = 'content-block '
   if (transparent) {
-    sectionClass += ' content-block--transparent'
+    sectionClass += 'content-block--transparent '
   }
+  sectionClass += className
 
   return <section className={sectionClass}>{children}</section>
 }
