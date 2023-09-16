@@ -1,10 +1,9 @@
-import { Inter } from 'next/font/google'
 import { ReactNode, FC } from 'react'
 import { ConfigProvider, theme } from 'antd'
 import { Metadata } from 'next'
 import '@/styles/global.css'
-
-const inter = Inter({ subsets: ['latin'] })
+import bgImage from '@/public/bg-layout.jpg'
+import Image from 'next/image'
 
 interface IProps {
   children: ReactNode
@@ -18,7 +17,7 @@ export const metadata: Metadata = {
 const RootLayout: FC<IProps> = ({ children }) => {
   return (
     <html lang="uk">
-      <body className={inter.className}>
+      <body suppressHydrationWarning={true}>
         <ConfigProvider
           theme={{
             algorithm: theme.darkAlgorithm,
@@ -28,6 +27,8 @@ const RootLayout: FC<IProps> = ({ children }) => {
             },
           }}
         >
+          <Image className="bg-block" src={bgImage} alt={'bg'} />
+
           {children}
         </ConfigProvider>
       </body>

@@ -1,0 +1,11 @@
+@import 'colors';
+
+.content-block {
+  width: 100vw;
+  min-height: 500px;
+  background: $content-bg;
+
+  &--transparent {
+    background: none;
+  }
+}
