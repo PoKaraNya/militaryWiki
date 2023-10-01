@@ -2,10 +2,12 @@
 @import '../config/sizes';
 
 .content-block {
-  min-height: 250px;
+  min-height: 200px;
   background: $dark2;
   position: relative;
-  padding: 100px;
+  padding: 50px;
+  display: flex;
+  justify-content: center;
 
   .content-container {
     width: 100%;
@@ -16,4 +18,3 @@
     background: none;
   }
 }
-

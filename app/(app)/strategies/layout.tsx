@@ -11,11 +11,6 @@ export const metadata: Metadata = {
 }
 
 const Layout: FC<IProps> = ({ children }) => {
-  return (
-    <main>
-      layout
-      {children}
-    </main>
-  )
+  return <main>{children}</main>
 }
 export default Layout

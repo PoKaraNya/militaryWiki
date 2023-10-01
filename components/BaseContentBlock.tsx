@@ -10,7 +10,7 @@ interface IProps {
 export const BaseContentBlock: FC<IProps> = ({
   children,
   transparent = false,
-  className = ''
+  className = '',
 }) => {
   let sectionClass = 'content-block '
   if (transparent) {
@@ -18,9 +18,5 @@ export const BaseContentBlock: FC<IProps> = ({
   }
   sectionClass += className
 
-  return (
-    <section className={sectionClass}>
-      {children}
-    </section>
-  )
+  return <section className={sectionClass}>{children}</section>
 }

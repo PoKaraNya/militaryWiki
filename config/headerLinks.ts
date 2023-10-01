@@ -1,4 +1,4 @@
-import {ILink} from "@/types/types";
+import { ILink } from '@/types/types'
 
 export const headerLinks: Readonly<ILink[]> = [
   {
@@ -8,5 +8,9 @@ export const headerLinks: Readonly<ILink[]> = [
   {
     url: '/strategies',
     name: 'Стратегії',
+  },
+  {
+    url: '/quiz',
+    name: 'Вікторина',
   },
 ] as const
