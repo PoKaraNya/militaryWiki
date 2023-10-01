@@ -20,11 +20,7 @@ export const Header: FC<IProps> = () => {
           linkClass += ' header__link--active'
         }
         return (
-          <Link
-              href={url}
-              className={linkClass}
-              key={index}
-          >
+          <Link href={url} className={linkClass} key={index}>
             {name}
           </Link>
         )
