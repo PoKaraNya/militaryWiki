@@ -1,0 +1,25 @@
+@import '../config/colors';
+
+.transparent-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h2 {
+    color: $white;
+    font-size: 5rem;
+    font-family: 'Play', sans-serif;
+    margin-bottom: 0;
+  }
+
+  h4 {
+    color: $white;
+    font-size: 2rem;
+    font-family: 'Play', sans-serif;
+    font-weight: normal;
+    max-width: 700px;
+    text-align: center;
+    margin-top: 20px;
+  }
+}

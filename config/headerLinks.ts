@@ -1,7 +1,4 @@
-interface ILink {
-  url: string
-  name: string
-}
+import {ILink} from "@/types/types";
 
 export const headerLinks: Readonly<ILink[]> = [
   {

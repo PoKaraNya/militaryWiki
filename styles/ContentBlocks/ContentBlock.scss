@@ -1,0 +1,19 @@
+@import '../config/colors';
+@import '../config/sizes';
+
+.content-block {
+  min-height: 250px;
+  background: $dark2;
+  position: relative;
+  padding: 100px;
+
+  .content-container {
+    width: 100%;
+    max-width: $container;
+  }
+
+  &--transparent {
+    background: none;
+  }
+}
+
