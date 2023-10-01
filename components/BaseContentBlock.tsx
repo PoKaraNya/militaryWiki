@@ -1,5 +1,5 @@
 import { FC, ReactNode } from 'react'
-import '@/styles/ContentBlock.scss'
+import '@/styles/ContentBlocks/ContentBlock.scss'
 
 interface IProps {
   children: ReactNode
@@ -18,5 +18,9 @@ export const BaseContentBlock: FC<IProps> = ({
   }
   sectionClass += className
 
-  return <section className={sectionClass}>{children}</section>
+  return (
+    <section className={sectionClass}>
+      {children}
+    </section>
+  )
 }
