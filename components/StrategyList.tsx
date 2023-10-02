@@ -29,7 +29,7 @@ export const StrategyList: FC<IProps> = () => {
   }
 
   return (
-    <>
+    <div className="strategy-list">
       <Input
         size="large"
         placeholder="Пошук"
@@ -37,11 +37,11 @@ export const StrategyList: FC<IProps> = () => {
         onChange={searchHandle}
         value={search}
       />
-      <div className={'strategy-list'}>
+      <div className="strategy-list__list">
         {filteredItems.map((el) => (
           <StrategyListItem {...el} />
         ))}
       </div>
-    </>
+    </div>
   )
 }
