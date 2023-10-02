@@ -1,0 +1,34 @@
+@import '../config/colors';
+
+.quiz-block {
+  display: flex;
+  justify-content: center;
+  width: 800px;
+  height: 300px;
+  background: white;
+  color: black;
+  border: 4px solid $gold;
+  padding: 20px;
+  border-radius: 20px;
+
+  &__question {
+    font-size: 1.5rem;
+    font-family: 'Play', sans-serif;
+  }
+
+  &__step {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  &__answerBlock {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-gap: 5px;
+  }
+
+}
