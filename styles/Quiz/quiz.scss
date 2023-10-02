@@ -10,5 +10,22 @@
   border-radius: 20px;
 
   &__question {
+    font-size: 1.5rem;
+    font-family: 'Play', sans-serif;
   }
+
+  &__step {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__answerBlock {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 5px;
+  }
+
 }

@@ -16,9 +16,9 @@ export const QuizBlockQuestion: FC<IProps> = ({
   const { question, answers, correctKey } = quizList[index]
 
   return (
-    <>
-      <div>{question}</div>
-      <div className="">
+    <div className="quiz-block__step">
+      <div className="quiz-block__question">{question}</div>
+      <div className="quiz-block__answerBlock">
         {answers.map(({ key, text }) => {
           return (
             <Button onClick={() => answerHandle(key === correctKey)}>
@@ -27,6 +27,6 @@ export const QuizBlockQuestion: FC<IProps> = ({
           )
         })}
       </div>
-    </>
+    </div>
   )
 }
