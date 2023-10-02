@@ -9,7 +9,7 @@ interface IProps {
 
 export const StrategyListItem: FC<IProps> = ({ id, title }) => {
   return (
-    <Link href={`/strategies/${id}`} className={'strategy-list__item'}>
+    <Link href={`/strategies/${id}`} className="strategy-list__item">
       {title}
     </Link>
   )
