@@ -4,6 +4,8 @@ import { IQuiz } from '@/types/types'
 import { BaseContentBlock } from '@/components/BaseContentBlock'
 import '@/styles/Quiz/quiz.scss'
 import { QuizBlockQuestion } from '@/components/QuizBlockQuestion'
+import {QuizBlockStart} from "@/components/QuizBlockStart";
+import {QuizBlockFinish} from "@/components/QuizBlockFinish";
 
 interface IProps {
   quizList: IQuiz[]
@@ -26,11 +28,11 @@ export const QuizBlock: FC<IProps> = ({ quizList, questionNumber }) => {
         {/*<QuizBlockStart*/}
         {/*    startHandler={startHandle}*/}
         {/*/>*/}
-        <QuizBlockQuestion
-          quizList={quizList}
-          index={0}
-          answerHandle={answerHandle}
-        />
+        {/*<QuizBlockQuestion*/}
+        {/*  quizList={quizList}*/}
+        {/*  index={0}*/}
+        {/*  answerHandle={answerHandle}*/}
+        {/*/>*/}
       </div>
     </BaseContentBlock>
   )
