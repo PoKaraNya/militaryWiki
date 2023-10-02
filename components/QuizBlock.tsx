@@ -1,11 +1,14 @@
 'use client'
-import { FC } from 'react'
+import {FC, ReactNode, useMemo, useState} from 'react'
 import { IQuiz } from '@/types/types'
 import { BaseContentBlock } from '@/components/BaseContentBlock'
 import '@/styles/Quiz/quiz.scss'
+import '@/styles/ContentBlocks/ContentBlock.scss'
 import { QuizBlockQuestion } from '@/components/QuizBlockQuestion'
 import {QuizBlockStart} from "@/components/QuizBlockStart";
 import {QuizBlockFinish} from "@/components/QuizBlockFinish";
+import {QuizStatus} from "@/types/quiz";
+import {useCounter} from "@/hooks/useCounter";
 
 interface IProps {
   quizList: IQuiz[]
@@ -13,26 +16,46 @@ interface IProps {
 }
 
 export const QuizBlock: FC<IProps> = ({ quizList, questionNumber }) => {
-  const startHandle = (): void => {}
+  const [status, setStatus] = useState<QuizStatus>('start')
+  const [step, addStep, resetStep] = useCounter(0)
+  const [success, addSuccess, resetSuccess] = useCounter(0)
+  const [fail, addFail, resetFail] = useCounter(0)
 
-  const answerHandle = (success: boolean) => {}
+  const quizQuestionList = quizList.sort(() => Math.random() - 0.5).slice(0, questionNumber)
+  const memoQuizQuestionList = useMemo(() => quizQuestionList, [])
+
+  console.log(memoQuizQuestionList)
+
+  const startHandle = (): void => {
+    setStatus('progress')
+    resetStep()
+    resetSuccess()
+    resetFail()
+  }
+
+  const answerHandle = (success: boolean): void => {
+    if (success) {
+      addSuccess()
+    } else {
+      addFail()
+    }
+    if (step >= questionNumber - 1) {
+      setStatus('finish')
+    } else {
+      addStep()
+    }
+  }
+
+  const Content: Record<QuizStatus, ReactNode> = {
+    start: <QuizBlockStart startHandler={startHandle}/>,
+    progress: <QuizBlockQuestion quizList={memoQuizQuestionList} index={step} answerHandle={answerHandle}/>,
+    finish: <QuizBlockFinish failNum={fail} successNum={success} returnHandle={startHandle}/>,
+  }
 
   return (
     <BaseContentBlock>
       <div className="quiz-block">
-        {/*<QuizBlockFinish*/}
-        {/*    failNum={1}*/}
-        {/*    successNum={2}*/}
-        {/*    returnHandle={startHandle}*/}
-        {/*/>*/}
-        {/*<QuizBlockStart*/}
-        {/*    startHandler={startHandle}*/}
-        {/*/>*/}
-        {/*<QuizBlockQuestion*/}
-        {/*  quizList={quizList}*/}
-        {/*  index={0}*/}
-        {/*  answerHandle={answerHandle}*/}
-        {/*/>*/}
+        {Content[status]}
       </div>
     </BaseContentBlock>
   )

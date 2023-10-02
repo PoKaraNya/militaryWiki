@@ -19,9 +19,12 @@ export const QuizBlockQuestion: FC<IProps> = ({
     <div className="quiz-block__step">
       <div className="quiz-block__question">{question}</div>
       <div className="quiz-block__answerBlock">
-        {answers.map(({ key, text }) => {
+        {answers.sort(() => Math.random() - 0.5).map(({ key, text }) => {
           return (
-            <Button onClick={() => answerHandle(key === correctKey)}>
+            <Button
+                key={key}
+                onClick={() => answerHandle(key === correctKey)}
+            >
               {text}
             </Button>
           )

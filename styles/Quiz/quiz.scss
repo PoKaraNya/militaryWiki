@@ -1,7 +1,9 @@
 @import '../config/colors';
 
 .quiz-block {
-  width: 500px;
+  display: flex;
+  justify-content: center;
+  width: 800px;
   height: 300px;
   background: white;
   color: black;
@@ -19,12 +21,13 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    width: 100%;
   }
 
   &__answerBlock {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(4, 1fr);
     grid-gap: 5px;
   }
 
