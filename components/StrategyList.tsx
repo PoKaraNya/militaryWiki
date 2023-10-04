@@ -1,11 +1,11 @@
 'use client'
 import { ChangeEvent, FC, useEffect, useState } from 'react'
 import strategyList from '@/mock/strategyList.json'
-import { StrategyListItem } from '@/components/StrategyListItem'
 import '@/styles/Strategy/Strategy.scss'
 import { Input } from 'antd'
 import { SearchOutlined } from '@ant-design/icons'
 import { IStrategy } from '@/types/types'
+import { StrategyListVirtualized } from '@/components/StrategyListVirtualized'
 
 interface IProps {}
 
@@ -38,9 +38,7 @@ export const StrategyList: FC<IProps> = () => {
         value={search}
       />
       <div className="strategy-list__list">
-        {filteredItems.map((el) => (
-          <StrategyListItem {...el} />
-        ))}
+        <StrategyListVirtualized filteredItems={filteredItems} />
       </div>
     </div>
   )
