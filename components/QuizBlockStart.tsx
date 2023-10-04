@@ -4,7 +4,7 @@ import { Button, Result } from 'antd'
 interface IProps {
   startHandler: () => void
 }
-export const QuizBlockStart: FC<IProps> = ({ startHandler }) => {
+const QuizBlockStart: FC<IProps> = ({ startHandler }) => {
   return (
     <Result
       status="info"
@@ -18,3 +18,4 @@ export const QuizBlockStart: FC<IProps> = ({ startHandler }) => {
     />
   )
 }
+export default QuizBlockStart

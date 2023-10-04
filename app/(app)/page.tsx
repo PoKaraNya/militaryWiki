@@ -5,6 +5,8 @@ import {
   infoBlock,
   hybridBlock1,
   hybridBlock2,
+  hybridBlock3,
+  hybridBlock4
 } from '@/mock/mainPage.json'
 import { TextBlock } from '@/components/TextBlock'
 import { HybridBlock } from '@/components/HybridBlock'
@@ -21,6 +23,8 @@ const Home: FC<IProps> = () => {
       <TextBlock text={infoBlock.text} />
       <HybridBlock text={hybridBlock1.text} img={hybridBlock1.img} />
       <HybridBlock text={hybridBlock1.text} img={hybridBlock2.img} reverse />
+      <HybridBlock text={hybridBlock1.text} img={hybridBlock3.img}/>
+      <HybridBlock text={hybridBlock1.text} img={hybridBlock4.img} reverse/>
     </main>
   )
 }

@@ -12,6 +12,14 @@
   },
   "hybridBlock2": {
     "text": "Текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст ",
+    "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Fire_and_movement.svg/1920px-Fire_and_movement.svg.png"
+  },
+  "hybridBlock3": {
+    "text": "Текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст ",
+    "img": "https://www.politico.eu/cdn-cgi/image/width=1024,quality=80,onerror=redirect,format=auto/wp-content/uploads/2023/07/20/GettyImages-1544450854-scaled.jpg"
+  },
+  "hybridBlock4": {
+    "text": "Текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст ",
     "img": "https://www.heritage.org/sites/default/files/styles/image_w_caption_840x440/public/images/2022-10/2023_US_Military_Strength_HERO_0.jpg?h=44b879e5&itok=t1VHCVpU"
   }
 }
