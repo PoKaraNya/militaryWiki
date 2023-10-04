@@ -9,7 +9,7 @@ interface IProps {
 
 const PASS_PERCENT = 50
 
-export const QuizBlockFinish: FC<IProps> = ({
+const QuizBlockFinish: FC<IProps> = ({
   successNum,
   failNum,
   returnHandle,
@@ -31,3 +31,4 @@ export const QuizBlockFinish: FC<IProps> = ({
     />
   )
 }
+export default QuizBlockFinish

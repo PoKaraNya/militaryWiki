@@ -8,7 +8,7 @@ interface IProps {
   index: number
 }
 
-export const QuizBlockQuestion: FC<IProps> = ({
+const QuizBlockQuestion: FC<IProps> = ({
   quizList,
   index,
   answerHandle,
@@ -35,3 +35,4 @@ export const QuizBlockQuestion: FC<IProps> = ({
     </div>
   )
 }
+export default QuizBlockQuestion

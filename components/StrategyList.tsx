@@ -1,13 +1,16 @@
 'use client'
-import { ChangeEvent, FC, useEffect, useState } from 'react'
+import {ChangeEvent, FC, lazy, useEffect, useState} from 'react'
 import strategyList from '@/mock/strategyList.json'
 import '@/styles/Strategy/Strategy.scss'
 import { Input } from 'antd'
 import { SearchOutlined } from '@ant-design/icons'
 import { IStrategy } from '@/types/types'
-import { StrategyListVirtualized } from '@/components/StrategyListVirtualized'
+import { Suspense } from 'react'
+// import { StrategyListVirtualized } from '@/components/StrategyListVirtualized'
 
 interface IProps {}
+
+const StrategyListVirtualizedLazy = lazy(() => import('@/components/StrategyListVirtualized'))
 
 export const StrategyList: FC<IProps> = () => {
   const [search, setSearch] = useState<string>('')
@@ -37,9 +40,11 @@ export const StrategyList: FC<IProps> = () => {
         onChange={searchHandle}
         value={search}
       />
-      <div className="strategy-list__list">
-        <StrategyListVirtualized filteredItems={filteredItems} />
-      </div>
+      <Suspense fallback={<p>Loading...</p>}>
+        <div className="strategy-list__list">
+            <StrategyListVirtualizedLazy filteredItems={filteredItems} />
+        </div>
+      </Suspense>
     </div>
   )
 }

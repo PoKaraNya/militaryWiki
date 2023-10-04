@@ -13,7 +13,7 @@ export const HybridBlock: FC<IProps> = ({ text, img, reverse = false }) => {
     <BaseContentBlock className={'hybrid-block'}>
       <div className="content-container">
         {reverse || <p>{text}</p>}
-        <img src={img} alt="Photo" />
+        {img ? <img src={img} alt="Photo" /> : null}
         {reverse && <p>{text}</p>}
       </div>
     </BaseContentBlock>
