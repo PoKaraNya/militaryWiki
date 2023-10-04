@@ -14,7 +14,7 @@ interface IProps {
   filteredItems: IStrategy[]
 }
 
-export const StrategyListVirtualized: FC<IProps> = ({ filteredItems }) => {
+const StrategyListVirtualized: FC<IProps> = ({ filteredItems }) => {
   const cache = useRef(
     new CellMeasurerCache({
       fixedHeight: true,
@@ -54,3 +54,4 @@ export const StrategyListVirtualized: FC<IProps> = ({ filteredItems }) => {
     </AutoSizer>
   )
 }
+export default StrategyListVirtualized
