@@ -12,7 +12,7 @@ export const useJson = <T>(key: string): IUseApiReturn<T> => {
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
-    (async () => {
+    ;(async () => {
       try {
         const json = await import(`@/mock/${key}.json`)
         if (!json) {

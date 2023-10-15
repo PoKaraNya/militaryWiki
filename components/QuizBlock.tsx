@@ -6,8 +6,8 @@ import '@/styles/Quiz/quiz.scss'
 import '@/styles/ContentBlocks/ContentBlock.scss'
 import { QuizStatus } from '@/types/quiz'
 import { useCounter } from '@/hooks/useCounter'
-import dynamic from "next/dynamic";
-import {Spin} from "antd";
+import dynamic from 'next/dynamic'
+import { Spin } from 'antd'
 
 interface IProps {
   quizList: IQuiz[]
@@ -47,21 +47,18 @@ export const QuizBlock: FC<IProps> = ({ quizList, questionNumber }) => {
     }
   }
 
-
-
-  const DynamicStart = dynamic(() => import("./QuizBlockStart"), {
+  const DynamicStart = dynamic(() => import('./QuizBlockStart'), {
     ssr: true,
-    loading: () => <Spin size="large"/>,
+    loading: () => <Spin size="large" />,
   })
-  const DynamicQuestion = dynamic(() => import("./QuizBlockQuestion"), {
+  const DynamicQuestion = dynamic(() => import('./QuizBlockQuestion'), {
     ssr: true,
-    loading: () => <Spin size="large"/>,
+    loading: () => <Spin size="large" />,
   })
-  const DynamicFinish = dynamic(() => import("./QuizBlockFinish"), {
+  const DynamicFinish = dynamic(() => import('./QuizBlockFinish'), {
     ssr: true,
-    loading: () => <Spin size="large"/>,
+    loading: () => <Spin size="large" />,
   })
-
 
   const Content: Record<QuizStatus, ReactNode> = {
     start: <DynamicStart startHandler={startHandle} />,

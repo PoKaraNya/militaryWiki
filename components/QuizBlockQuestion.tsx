@@ -8,11 +8,7 @@ interface IProps {
   index: number
 }
 
-const QuizBlockQuestion: FC<IProps> = ({
-  quizList,
-  index,
-  answerHandle,
-}) => {
+const QuizBlockQuestion: FC<IProps> = ({ quizList, index, answerHandle }) => {
   const { question, answers, correctKey } = quizList[index]
 
   return (
