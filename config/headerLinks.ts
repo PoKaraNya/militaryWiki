@@ -16,5 +16,9 @@ export const headerLinks: Readonly<ILink[]> = [
   {
     url: '/galerry',
     name: 'Галерея'
+  },
+  {
+    url: '/cat-galerry',
+    name: 'Коти'
   }
 ] as const
