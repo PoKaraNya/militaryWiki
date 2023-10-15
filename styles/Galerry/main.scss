@@ -1,0 +1,26 @@
+@import '../config/colors';
+
+.grid-cell {
+  width: 300px;
+  height: 300px;
+  border-radius: 20px;
+}
+
+.gallery {
+  .container {
+    height: 600px;
+    width: 920px;
+    padding-bottom: 20px;
+    border: 10px solid $gold;
+    background: $content-bg;
+    border-radius: 10px;
+  }
+
+  .list {
+    background: $content-bg;
+    li {
+      color: $white;
+      font-family: 'Play', sans-serif;
+    }
+  }
+}
