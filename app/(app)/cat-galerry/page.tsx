@@ -10,6 +10,7 @@ import {useRef} from "react";
 export default function CatGalerryPage() {
     const {data, error, refetch, loading} = useApi<ICatApi[]>(CAT_API, true, 10)
     const buttonRef = useRef<HTMLButtonElement>(null)
+    const textAreaRef = useRef<HTMLTextAreaElement>(null)
     if (loading && !data) {
         return <Loading/>
     }
@@ -19,7 +20,11 @@ export default function CatGalerryPage() {
     }
 
     const handleFocus = () => {
-        buttonRef?.current?.focus()
+        buttonRef.current?.focus()
+    }
+
+    const handleAlert = () => {
+        alert(textAreaRef.current?.value)
     }
 
     const photos = (data ?? []).map(({url}) => url)
@@ -34,6 +39,16 @@ export default function CatGalerryPage() {
             </div>
             <button onClick={handleFocus}>
                 Фокус на кнопку оновлення
+            </button>
+            <textarea
+                name="alert"
+                id="alert"
+                ref={textAreaRef}
+                cols={30}
+                rows={10}
+            />
+            <button onClick={handleAlert}>
+                Alert
             </button>
         </main>
     )
