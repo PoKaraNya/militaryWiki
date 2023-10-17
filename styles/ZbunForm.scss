@@ -1,0 +1,45 @@
+$formColor: #172c3e;
+$formBg: #eceff4;
+
+.ZbunForm {
+  background: #ffffff;
+  
+  
+  .block {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 20px;
+    gap: 20px;
+    flex-grow: 1;
+
+    //&-short {
+    //  max-width: 400px;
+    //}
+  }
+
+  .container {
+    display: flex;
+
+  }
+
+  input, button, select {
+    border-radius: 99999px;
+    padding: 10px;
+    border: none;
+    color: $formColor;
+    background: $formBg;
+  }
+
+  .inputWrapper {
+    position: relative;
+  }
+
+  .messages {
+    color: red;
+    position: absolute;
+    top: 30px;
+    font-size: 0.6rem;
+  }
+}
+
+
