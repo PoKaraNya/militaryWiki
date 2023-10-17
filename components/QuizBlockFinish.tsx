@@ -9,11 +9,7 @@ interface IProps {
 
 const PASS_PERCENT = 50
 
-const QuizBlockFinish: FC<IProps> = ({
-  successNum,
-  failNum,
-  returnHandle,
-}) => {
+const QuizBlockFinish: FC<IProps> = ({ successNum, failNum, returnHandle }) => {
   const allNum = successNum + failNum
   const successPercent = Math.trunc((successNum / allNum) * 100)
   const isSuccess = successPercent >= PASS_PERCENT
