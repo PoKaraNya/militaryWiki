@@ -1,0 +1,39 @@
+@import '../config/colors';
+
+.card {
+  width: 200px;
+  height: 300px;
+  background: $white;
+  border-radius: 20px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.preview {
+  height: 150px;
+  width: 180px;
+  object-fit: cover;
+}
+
+.title {
+  color: $dark1;
+  height: 40px;
+  padding: 10px
+}
+
+.description {
+  color: $dark2;
+  height: 40px;
+  padding: 10px
+}
+
+.price {
+  color: $white;
+  background: $dark2;
+  border-radius: 10px;
+  padding: 10px;
+  justify-self: flex-end;
+  align-self: flex-end;
+}
