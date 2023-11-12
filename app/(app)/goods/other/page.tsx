@@ -1,15 +1,8 @@
-import {FC} from "react";
+import { FC } from 'react'
 
-interface IProps {
-
-}
+interface IProps {}
 
 const OtherPage: FC<IProps> = () => {
-
-    return (
-        <div>
-            Other page
-        </div>
-    )
+  return <div>Other page</div>
 }
 export default OtherPage
