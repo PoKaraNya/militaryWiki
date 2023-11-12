@@ -1,0 +1,10 @@
+@import '../config/colors';
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 30px;
+  background: $gold;
+  border-radius: 20px;
+}
