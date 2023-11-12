@@ -12,13 +12,13 @@ export const useJson = <T>(key: string): IUseApiReturn<T> => {
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
-    ;(async () => {
+    (async () => {
       try {
         const json = await import(`@/mock/${key}.json`)
         if (!json) {
           throw new Error('No json file found')
         }
-        setData(json as T)
+        setData(json.default as T)
       } catch (e) {
         if (e instanceof Error) {
           setError(e.message)
@@ -28,7 +28,7 @@ export const useJson = <T>(key: string): IUseApiReturn<T> => {
       }
       setLoading(false)
     })()
-  }, [])
+  }, [key])
 
   return { data, loading, error }
 }

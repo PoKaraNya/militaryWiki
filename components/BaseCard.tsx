@@ -4,7 +4,7 @@ import s from '@/styles/Goods/Card.module.scss'
 interface IProps {
   img?: string
   title: string
-  description: string
+  description?: string
   price: number
   clickHandle?: () => void
 }
