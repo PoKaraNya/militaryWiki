@@ -1,3 +1,4 @@
+'use client'
 import {FC} from "react";
 import s from '@/styles/Goods/Card.module.scss'
 interface IProps {
@@ -5,10 +6,10 @@ interface IProps {
     title: string
     description: string
     price: number
-    clickHandle: () => void
+    clickHandle?: () => void
 }
 
-const BaseCard: FC<IProps> = ({img, price, description, title, clickHandle}) => {
+const BaseCard: FC<IProps> = ({img, price, description, title, clickHandle = () => {}}) => {
     return (
         <div className={s.card} onClick={clickHandle}>
             <img className={s.preview} src={img} alt="preview"/>
