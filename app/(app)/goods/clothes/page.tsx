@@ -1,22 +1,30 @@
+'use client'
 import { FC } from 'react'
 import BaseCard from '@/components/BaseCard'
 import BaseCardContainer from '@/components/BaseCardContainer'
+import {useJson} from "@/hooks/useJson";
+import {IGoodsCard} from "@/types/goods";
 
 interface IProps {}
 
 const ClothesPage: FC<IProps> = () => {
+
+  const {data} = useJson<IGoodsCard[]>('goodsClothes')
+    console.log(data)
+  if (!data) {
+      return null
+  }
+
   return (
     <div>
       <BaseCardContainer>
-        {new Array(20).fill(null).map(() => {
+        {data.map(({title, description, img, price}) => {
           return (
             <BaseCard
-              img={
-                'https://killa.com.ua/image/cache/catalog/image/cache/catalog/import_yml2/m-tac-kurtka-norman-windblock-fleece-oliva/20027001-800x800.webp'
-              }
-              title={'Title'}
-              description={'Description'}
-              price={100}
+              key={title}
+              img={img}
+              title={title}
+              price={price}
             />
           )
         })}
