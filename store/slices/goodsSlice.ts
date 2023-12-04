@@ -1,29 +1,43 @@
-import { createSlice } from '@reduxjs/toolkit'
+import {createSelector, createSlice} from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
+import goodsClothes from '@/mock/goodsClothes.json'
+import {IGoodsCard} from "@/types/goods";
 
-interface CounterState {
-    value: number
+interface GoodsState {
+    total: number
+    goods: IGoodsCard[]
+    cart: boolean[]
 }
 
-const initialState: CounterState = {
-    value: 0,
+const initialState: GoodsState = {
+    total: 0,
+    goods: goodsClothes,
+    cart: new Array(goodsClothes.length).fill(false)
 }
 
-export const counterSlice = createSlice({
+export const goodsSlice = createSlice({
     name: 'counter',
     initialState,
     reducers: {
-        increment: (state) => {
-            state.value += 1
+        toggleGoods: (state, action: PayloadAction<number>) => {
+            state.cart[action.payload] = !state.cart[action.payload]
         },
-        decrement: (state) => {
-            state.value -= 1
-        },
-        incrementByAmount: (state, action: PayloadAction<number>) => {
-            state.value += action.payload
-        },
+        clearCart: (state) => {
+            state.cart = new Array(state.cart.length).fill(false)
+        }
     },
 })
 
-export const { increment, decrement, incrementByAmount } = counterSlice.actions
-export default counterSlice.reducer
+export const totalPriceComputed = createSelector(
+    (state: { goods: GoodsState }) => state.goods.cart,
+    (cart) => cart.reduce((total, isInCart, index) => {
+        if (isInCart) {
+            return total + Number(goodsClothes[index].price)
+        } else {
+            return total
+        }
+    }, 0),
+);
+
+export const { toggleGoods, clearCart } = goodsSlice.actions
+export default goodsSlice.reducer
