@@ -1,9 +1,10 @@
-import {createSlice} from '@reduxjs/toolkit'
+import {createSelector, createSlice} from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import {QuizStatus} from "@/types/quiz";
 import {IQuiz} from "@/types/types";
 import quizList from '@/mock/quiz.json'
 import {QUIZ_QUESTIONS_NUMBER} from "@/config/quiz";
+import {RootState} from "@/store/store";
 
 interface GoodsState {
     status: QuizStatus
@@ -48,6 +49,25 @@ export const quizSlice = createSlice({
         },
     },
 })
+
+export const isSuccessPercentSelector = createSelector(
+    ({quiz}: RootState) => quiz,
+    ({success, fail}) => {
+        const allNum = success + fail
+        return  Math.trunc((success / allNum) * 100)
+    }
+);
+
+export const currentQuizSelector = createSelector(
+    ({quiz}: RootState) => quiz,
+    ({quizQuestionList, step}) => {
+        const list = quizQuestionList[step]
+        return {
+            ...list,
+            answers: list.answers.toSorted(() => Math.random() - 0.5)
+        }
+    }
+)
 
 export const { start, answer, reset } = quizSlice.actions
 export default quizSlice.reducer
