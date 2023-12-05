@@ -1,9 +1,9 @@
 import { ReactNode, FC } from 'react'
-import { ConfigProvider, theme } from 'antd'
 import { Metadata } from 'next'
 import '@/styles/global.css'
 import bgImage from '@/public/bg-layout.jpg'
 import Image from 'next/image'
+import Providers from "@/components/Providers";
 
 interface IProps {
   children: ReactNode
@@ -18,19 +18,10 @@ const RootLayout: FC<IProps> = ({ children }) => {
   return (
     <html lang="uk">
       <body suppressHydrationWarning={true}>
-        <ConfigProvider
-          theme={{
-            algorithm: theme.darkAlgorithm,
-            token: {
-              colorPrimary: '#007a4c',
-              colorBgContainer: '#f6ffed',
-            },
-          }}
-        >
-          <Image className="bg-block" src={bgImage} alt={'bg'} />
-
-          {children}
-        </ConfigProvider>
+        <Providers>
+            <Image className="bg-block" src={bgImage} alt={'bg'} />
+            {children}
+        </Providers>
       </body>
     </html>
   )
